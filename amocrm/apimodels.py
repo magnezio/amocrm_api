@@ -67,7 +67,7 @@ class _BaseModel(six.with_metaclass(_ModelMeta)):
         else:
             self._init_data = data or kwargs
 
-            for name, field in self._fields.items():
+            for name, field in sorted(self._fields.items()):
                 if isinstance(field, fields.ManyForeignField):
                     continue
                 value = self._init_data.get(name, None)
